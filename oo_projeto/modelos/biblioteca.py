@@ -3,7 +3,7 @@ class Biblioteca:
 
     def __init__(self, nome):
         self.nome = nome
-        self.ativo = False
+        self._ativo = False
         Biblioteca.bibliotecas.append(self)
 
     def __str__(self):
@@ -13,10 +13,18 @@ class Biblioteca:
         for biblioteca in Biblioteca.bibliotecas:
             print(f"{biblioteca.nome} | {biblioteca.ativo}")
 
+    def alterna_estado(self):
+        self._ativo = not self._ativo
+
+    @property
+    def ativo(self):
+        return "ativado" if self._ativo else "desativado"
+
 
 biblioteca_cidade = Biblioteca("Biblioteca da Cidade")
 biblioteca_shopping = Biblioteca("Biblioteca do Shopping")
-print(biblioteca_cidade)
-print(biblioteca_shopping)
+
+biblioteca_cidade.alterna_estado()
+biblioteca_shopping.alterna_estado()
 
 Biblioteca.listar_bibliotecas()
