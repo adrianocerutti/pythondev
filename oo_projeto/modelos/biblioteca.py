@@ -1,16 +1,22 @@
 class Biblioteca:
-    nome = ""
-    ativo = False
+    bibliotecas = []
 
-biblioteca_cidade = Biblioteca()
-biblioteca_cidade.nome = "Biblioteca da Cidade"
-biblioteca_cidade.ativo = True
+    def __init__(self, nome):
+        self.nome = nome
+        self.ativo = False
+        Biblioteca.bibliotecas.append(self)
 
-biblioteca_shopping = Biblioteca()
+    def __str__(self):
+        return self.nome
 
-bibliotecas = [biblioteca_shopping, biblioteca_cidade]
-print(vars(biblioteca_cidade))
-print(vars(biblioteca_shopping))
+    def listar_bibliotecas():
+        for biblioteca in Biblioteca.bibliotecas:
+            print(f"{biblioteca.nome} | {biblioteca.ativo}")
 
-for biblioteca in bibliotecas:
-    print(vars(biblioteca))
+
+biblioteca_cidade = Biblioteca("Biblioteca da Cidade")
+biblioteca_shopping = Biblioteca("Biblioteca do Shopping")
+print(biblioteca_cidade)
+print(biblioteca_shopping)
+
+Biblioteca.listar_bibliotecas()
