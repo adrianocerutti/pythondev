@@ -21,12 +21,3 @@ class Biblioteca:
     @property
     def ativo(self):
         return "ativado" if self._ativo else "desativado"
-
-
-biblioteca_cidade = Biblioteca("Biblioteca da Cidade")
-biblioteca_shopping = Biblioteca("Biblioteca do Shopping")
-
-biblioteca_cidade.alterna_estado()
-biblioteca_shopping.alterna_estado()
-
-Biblioteca.listar_bibliotecas()
